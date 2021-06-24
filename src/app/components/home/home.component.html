@@ -1,0 +1,45 @@
+<div class="row ">
+    <div class="col-md-4 " *ngFor="let book of books">
+        <div class="card text-center">
+            <div class="card-header bg-dark">
+                {{book.title}}
+            </div>
+            <img [src]="book.img == ' ' ? '/assets/noimage.png': book.img" alt="book.img" class="card-img-top">
+            <div class="card-body">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <div class="cont-Book">
+                            <li class="list-group-item"> Información del libro </li>
+                            <p>Año Publicación: <small>{{book.year_creation}}</small></p>
+                            <p>Géneros literarios: <small>{{book.gender}}.</small></p>
+                            <p>Páginas: <small>{{book.number_pages}}</small></p>
+                        </div>
+                        <div class="cont-author">
+                            <li class="list-group-item"> Información del Autor</li>
+                            <p>Autor: <small>{{book.name_author}}</small></p>
+                            <p>Fecha Nacimiento: <small>{{book.birth_date |date:'MMMM-dd-yyyy'}}</small></p>
+                            <p>Ciudad Procedencia: <small>{{book.city_birth}}</small></p>
+                            <p>Correo Electronico: <small>{{book.personal_email}}</small></p>
+                        </div>
+                        <div class="cont-editorial">
+                            <li class="list-group-item"> Información de la Editorial </li>
+                            <p> Editorial: <small>{{book.name_editorial}}</small> </p>
+                            <p> Direección Editorial: <small>{{book.editorial_adress}}</small></p>
+                            <p> Teléfono editorial: <small>{{book.editorial_phone}}</small></p>
+                            <p> Correo Electronico: <small>{{book.editorial_email}}</small></p>
+                            <p> Max_Libros Registrados: <small>{{book.max_books_registered}}</small></p>
+                        </div>
+                    </ul>
+                </div>
+                <div class="btn btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" [routerLink]="['/books/edit', book.id]" class="btn btn-outline-primary">
+                        <i class="fa fa-hammer"> EDITAR</i>
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" (click)="deleteBook(book.id)">
+                        <i class="fa fa-trash"> ELIMINAR</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

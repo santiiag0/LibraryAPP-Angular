@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col">
+        <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="Buscar Libro por autor o nombre del libro..">
+    </div>
+
+</div>
+
+<div class="row ">
+    <div class="col-md-4 " *ngFor="let author of authors">
+        <div class="card text-center">
+            <div class="card-header bg-dark">
+                {{book.title}}
+            </div>
+            <img [src]="author.img == ' ' ? '/assets/noimage.png': author.img" alt="author.img" class="card-img-top">
+            <div class="card-body">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <div class="cont-Book">
+                            <li class="list-group-item"> Información del libro </li>
+                            <p>Año Publicación: <small>{{author.year_creation}}</small></p>
+                            <p>Géneros literarios: <small>{{author.gender}}.</small></p>
+                            <p>Páginas: <small>{{author.number_pages}}</small></p>
+                        </div>
+                        <div class="cont-author">
+                            <li class="list-group-item"> Información del Autor</li>
+                            <p>Autor: <small>{{author.name_author}}</small></p>
+                            <p>Fecha Nacimiento: <small>{{author.birth_date |date:'MMMM-dd-yyyy'}}</small></p>
+                            <p>Ciudad Procedencia: <small>{{author.city_birth}}</small></p>
+                            <p>Correo Electronico: <small>{{author.personal_email}}</small></p>
+                        </div>
+                        <div class="cont-editorial">
+                            <li class="list-group-item"> Información de la Editorial </li>
+                            <p> Editorial: <small>{{author.name_editorial}}</small> </p>
+                            <p> Direección Editorial: <small>{{author.editorial_adress}}</small></p>
+                            <p> Teléfono editorial: <small>{{author.editorial_phone}}</small></p>
+                            <p> Correo Electronico: <small>{{author.editorial_email}}</small></p>
+                            <p> Max_Libros Registrados: <small>{{author.max_books_registered}}</small></p>
+                        </div>
+                    </ul>
+                </div>
+                <div class="btn btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" [routerLink]="['/books/edit', book.id]" class="btn btn-outline-primary">
+                        <i class="fa fa-hammer"> EDITAR</i>
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" (click)="deleteBook(book.id)">
+                        <i class="fa fa-trash"> ELIMINAR</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

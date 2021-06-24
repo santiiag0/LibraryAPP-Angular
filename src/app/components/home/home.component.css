@@ -1,0 +1,40 @@
+a {
+    margin-top: 5px;
+    background-color: #034a5c;
+}
+
+.card-body {
+    max-height: 1000px;
+}
+
+.card-header {
+    background-color: #073642;
+    color: #20c997;
+    font-family: 'Viaoda Libre', cursive;
+    font-size: 2rem;
+    max-height: 100px;
+}
+
+img {
+    padding: 5px 5px;
+    max-height: 250px;
+}
+
+li {
+    background-color: #073642;
+    color: #000;
+    font-family: 'Viaoda Libre', cursive;
+    font-size: 1.5rem;
+}
+
+p {
+    color: #011a20;
+    margin-bottom: 2px;
+    font-size: .9rem;
+    text-align: start;
+}
+
+small {
+    color: #fff;
+    font-size: .9rem;
+}
